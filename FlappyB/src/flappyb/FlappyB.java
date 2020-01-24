@@ -5,14 +5,17 @@
  */
 package flappyb;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.geometry.Bounds;
+import javafx.scene.Scene;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.scene.paint.Color;
 
 public class FlappyB extends Application {
 
@@ -28,10 +31,9 @@ public class FlappyB extends Application {
 //            }
 //        });
 
-        Circle circle = new Circle();
-        circle.setCenterX(100.0f);
-        circle.setCenterY(100.0f);
-        circle.setRadius(13.0f);
+        Circle circle = new Circle(10, Color.BLUE);
+
+        circle.relocate(0, 100);
 
         StackPane root = new StackPane();
         root.getChildren().add(circle);
@@ -41,6 +43,14 @@ public class FlappyB extends Application {
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //haisevaa nettikoodia
+        Bounds bounds = root.getBoundsInLocal();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10),
+                new KeyValue(circle.layoutXProperty(), bounds.getMaxX() - circle.getRadius())));
+        timeline.setCycleCount(2);
+        timeline.play();
+
     }
 
     public static void main(String[] args) {
@@ -48,3 +58,4 @@ public class FlappyB extends Application {
     }
 
 }
+
