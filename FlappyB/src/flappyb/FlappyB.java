@@ -31,7 +31,7 @@ public class FlappyB extends Application {
         Circle circle = new Circle();
         circle.setCenterX(100.0f);
         circle.setCenterY(100.0f);
-        circle.setRadius(50.0f);
+        circle.setRadius(13.0f);
 
         StackPane root = new StackPane();
         root.getChildren().add(circle);
