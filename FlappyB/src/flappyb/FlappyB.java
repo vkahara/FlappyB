@@ -12,40 +12,39 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.scene.shape.Circle;
 
-/**
- *
- * @author homo
- */
 public class FlappyB extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
+//        Button btn = new Button();
+//        btn.setText("Say 'Hello World'");
+//        btn.setOnAction(new EventHandler<ActionEvent>() {
+//           
+//            @Override
+//            public void handle(ActionEvent event) {
+//                System.out.println("Hello World!");
+//            }
+//        });
+
+        Circle circle = new Circle();
+        circle.setCenterX(100.0f);
+        circle.setCenterY(100.0f);
+        circle.setRadius(50.0f);
+
         StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
+        root.getChildren().add(circle);
+
+        Scene scene = new Scene(root, 300, 500);
+
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
